@@ -1,0 +1,24 @@
+/*    BARRA DE MENU   */
+.botonBarraMenu {
+    margin-top:6px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #101010;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: 700;
+    
+}
+.botonBarraMenu.active {
+    color:rgb(235, 93, 12);
+    font-size: 15px;
+    transition: all 0.5s ease;
+}
+
+.botonBarraMenu:hover {
+    color:rgb(211, 48, 8);
+    transition: all 0.5s ease;
+    text-decoration: none;
+}
+
+

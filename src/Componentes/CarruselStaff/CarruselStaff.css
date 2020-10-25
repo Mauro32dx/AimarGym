@@ -1,0 +1,186 @@
+  .botonPre,.botonNex {
+  margin-top: 170px;
+    position: absolute;
+      width: 50px;
+      height: 50px;
+      background:  #f65625d0;
+      border-radius: 25px;
+      z-index: 5;
+    }
+
+  .botonPre{
+  margin-left: 1vw;
+  }
+  .botonNex {
+    margin-left:calc( 100% - 50px - 1vw );;
+  }
+  
+  .botonPre:hover, .botonNex:hover{
+    background:#f65625ea;
+
+  }
+  .botonPre:active, .botonNex:active{
+    background: #f65625;
+  }
+  .contenedorBotonControles {
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    z-index: 30;
+  
+  }
+  
+  .contenedorItems {
+    display: flex;
+    width: 100%;
+    justify-content: row;
+    z-index: 1;
+  }
+  
+  .itemPersonal {
+    position: absolute;
+    z-index: 1;
+    width: 250px;
+    height: 350px;
+    display: none;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: -1px 15px 30px -12px black;
+  }
+  
+  .itemPersonal.active {
+    z-index: 5;
+    margin-left: 350px;
+    scale: 1;
+    display: inline;
+    background: rgb(230, 228, 228);
+    transition: all 0.7s ease;
+  }
+  .itemPersonal.active:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+
+  .itemPersonal.visible1 {
+    margin-left: 110px;
+    z-index: 4;
+    transform: scale(0.8) skewY(10deg);
+    background: rgb(0, 0, 0);
+    display: inline;
+    transition: all 0.7s ease;
+
+  }
+  .itemPersonal.visible2 {
+    margin-left: 590px;
+    z-index: 4;
+    transform: scale(0.8) skewY(-10deg);
+    background: rgb(0, 0, 0);
+    display: inline;
+    transition: all 0.7s ease;
+
+  }
+  
+  .itemPersonal.visible3 {
+    z-index: 2;
+    margin-left: -60px;
+    transform: scale(0.5) skewY(10deg);
+    background: rgb(0, 0, 0);
+    display: inline;
+    transition: all 0.7s ease;
+
+  }
+  .itemPersonal.visible4 {
+    z-index: 2;
+    margin-left: 760px;
+    transform: scale(0.5) skewY(-10deg);
+    background: rgb(0, 0, 0);
+    display: inline;
+    transition: all 0.2s ease;
+
+  }
+  
+  .contenedorSliders {
+    margin: 0 auto;
+    padding-top: 25px ;
+    width: 950px;
+    height: 400px;
+  }
+
+  @media only screen and (max-width: 950px) {
+    .itemPersonal.active { margin-left:calc(-120px + 50%);}
+    .itemPersonal.visible1 {  margin-left: calc(-23px + 15%);}
+    .itemPersonal.visible2 {  margin-left: calc(93% - 290px)}
+    .itemPersonal.visible3 { margin-left: calc(-60px + 1.5vw);}
+    .itemPersonal.visible4 {margin-left: calc(104vw - 250px);}
+    .contenedorSliders { margin: 0 0; width: 100%;}
+  }
+
+  @media only screen and (max-width: 600px) {
+    .itemPersonal.active { margin-left:calc(-126px + 50%);}
+    .itemPersonal.visible1 {  margin-left: calc(-60px + 19%);}
+    .itemPersonal.visible2 {  margin-left: calc(93% - 250px)}
+    .itemPersonal.visible3 { margin-left: calc(-60px + 2vw);}
+    .itemPersonal.visible4 {margin-left: calc(106vw - 250px);}
+    .contenedorSliders { margin: 0 0; width: 100%;}
+  }
+
+  @media only screen and (max-width: 420px) {
+    .itemPersonal.active { margin-left:calc(-125px + 50%);}
+    .itemPersonal.visible1 {  margin-left: calc(-60px + 15%);}
+    .itemPersonal.visible2 {  margin-left: calc(93% - 221px)}
+    .itemPersonal.visible3 { margin-left: calc(-60px + 2%);}
+    .itemPersonal.visible4 {margin-left: calc(107% - 224px);}
+    .contenedorSliders { margin: 0 0; width: 100%;}
+  }
+
+.contenedorFoto{
+  border: 1px solid rgb(172, 172, 172);
+  height: 250px;
+  border-radius: 10px 10px 0px 0px;
+}
+.FondoPerfil{
+  transform: perspective(800px);
+  transform-style: preserve-3d;
+  cursor: pointer;
+  filter: blur(4px);
+  height: 250px;
+  border-radius: 10px 10px 0px 0px;
+}
+.contenedorInformacion2{
+  position: absolute;
+  background: rgb(255, 255, 255);
+  width: 100%;
+  height: 100px;
+  border-radius: 0px 0px 10px 10px;
+  box-shadow: 0px -20px 15px -3px rgba(0, 0, 0, 0.801);
+
+}
+.contenedorInformacion{
+  height: 100px;
+  border-radius: 0px 0px 10px 10px;
+}
+.imgItemCarruselStaff{
+  position: absolute;
+  opacity: 1;
+  height:250px;
+  margin-top: -250px;
+  padding: 20px;
+  padding-bottom: 0px;
+  width: auto;
+}
+
+.itemPersonal.visible1>div {
+opacity: 0.7;
+}
+.itemPersonal.visible2>div {
+  opacity: 0.7;
+}
+.itemPersonal.visible3>div {
+  opacity: 0.3;
+  filter: blur(1px);
+}
+.itemPersonal.visible4>div {
+    opacity: 0.3;
+    filter: blur(1px);
+}
+
