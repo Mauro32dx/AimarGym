@@ -1,0 +1,42 @@
+{
+  "files": {
+    "main.css": "/aimar/static/css/main.0e80b1ad.chunk.css",
+    "main.js": "/aimar/static/js/main.60381fc9.chunk.js",
+    "main.js.map": "/aimar/static/js/main.60381fc9.chunk.js.map",
+    "runtime-main.js": "/aimar/static/js/runtime-main.da3bd494.js",
+    "runtime-main.js.map": "/aimar/static/js/runtime-main.da3bd494.js.map",
+    "static/css/2.d9ad5f5c.chunk.css": "/aimar/static/css/2.d9ad5f5c.chunk.css",
+    "static/js/2.1bd55205.chunk.js": "/aimar/static/js/2.1bd55205.chunk.js",
+    "static/js/2.1bd55205.chunk.js.map": "/aimar/static/js/2.1bd55205.chunk.js.map",
+    "index.html": "/aimar/index.html",
+    "precache-manifest.d2cc30a56baa9889b5407650b2c4fa1a.js": "/aimar/precache-manifest.d2cc30a56baa9889b5407650b2c4fa1a.js",
+    "service-worker.js": "/aimar/service-worker.js",
+    "static/css/2.d9ad5f5c.chunk.css.map": "/aimar/static/css/2.d9ad5f5c.chunk.css.map",
+    "static/css/main.0e80b1ad.chunk.css.map": "/aimar/static/css/main.0e80b1ad.chunk.css.map",
+    "static/js/2.1bd55205.chunk.js.LICENSE.txt": "/aimar/static/js/2.1bd55205.chunk.js.LICENSE.txt",
+    "static/media/classes-item-1.jpg": "/aimar/static/media/classes-item-1.161f493b.jpg",
+    "static/media/classes-item-2.jpg": "/aimar/static/media/classes-item-2.39756a13.jpg",
+    "static/media/classes-item-3.jpg": "/aimar/static/media/classes-item-3.c6de269e.jpg",
+    "static/media/classes-item-4.jpg": "/aimar/static/media/classes-item-4.32f0b9b6.jpg",
+    "static/media/classes-item-5.jpg": "/aimar/static/media/classes-item-5.f97741d7.jpg",
+    "static/media/classes-item-6.jpg": "/aimar/static/media/classes-item-6.29e39b85.jpg",
+    "static/media/fondo1.jpg": "/aimar/static/media/fondo1.705a0432.jpg",
+    "static/media/perfil1.png": "/aimar/static/media/perfil1.2cf2179a.png",
+    "static/media/perfil2.png": "/aimar/static/media/perfil2.d7fea477.png",
+    "static/media/perfil3.png": "/aimar/static/media/perfil3.f14860c5.png",
+    "static/media/perfil4.png": "/aimar/static/media/perfil4.2ef01a62.png",
+    "static/media/perfil5.png": "/aimar/static/media/perfil5.ae1dd03a.png",
+    "static/media/perfil6.png": "/aimar/static/media/perfil6.0c30b098.png",
+    "static/media/perfil7.png": "/aimar/static/media/perfil7.62da7fcc.png",
+    "static/media/slide-1.png": "/aimar/static/media/slide-1.51892308.png",
+    "static/media/slide-2.png": "/aimar/static/media/slide-2.85cd6d08.png",
+    "static/media/slide-3.png": "/aimar/static/media/slide-3.bf06b009.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.da3bd494.js",
+    "static/css/2.d9ad5f5c.chunk.css",
+    "static/js/2.1bd55205.chunk.js",
+    "static/css/main.0e80b1ad.chunk.css",
+    "static/js/main.60381fc9.chunk.js"
+  ]
+}
