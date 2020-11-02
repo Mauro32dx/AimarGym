@@ -14,7 +14,7 @@ export default class Home extends React.Component {
                 <h1> Sobre Nosotros </h1>
                 <p> Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500 </p>
 
-                <Grid container spacing={1}>
+                <Grid container>
                     <Grid item xs={12} sm={6} md={3} >
                         <Icono nombre='icono1' size="60px"/>
                         <div>HOLA MUNDO</div>

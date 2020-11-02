@@ -1,9 +1,10 @@
   .botonPre,.botonNex {
+    padding: 11px;
   margin-top: 170px;
     position: absolute;
       width: 50px;
       height: 50px;
-      background:  #f65625d0;
+      background:  #f65625ab;
       border-radius: 25px;
       z-index: 5;
     }
@@ -16,18 +17,18 @@
   }
   
   .botonPre:hover, .botonNex:hover{
-    background:#f65625ea;
+    background:#f65625bd;
 
   }
   .botonPre:active, .botonNex:active{
-    background: #f65625;
+    background: #f65625e8;
   }
   .contenedorBotonControles {
     width: 100%;
     position: absolute;
     display: flex;
     justify-content: space-between;
-    z-index: 30;
+    z-index: 9;
   
   }
   
@@ -56,15 +57,11 @@
     background: rgb(230, 228, 228);
     transition: all 0.7s ease;
   }
-  .itemPersonal.active:hover {
-    transform: scale(1.1);
-    cursor: pointer;
-  }
 
   .itemPersonal.visible1 {
     margin-left: 110px;
     z-index: 4;
-    transform: scale(0.8) skewY(10deg);
+    transform: scale(0.8) skewY(10deg) !important;
     background: rgb(0, 0, 0);
     display: inline;
     transition: all 0.7s ease;
@@ -73,7 +70,7 @@
   .itemPersonal.visible2 {
     margin-left: 590px;
     z-index: 4;
-    transform: scale(0.8) skewY(-10deg);
+    transform: scale(0.8) skewY(-10deg) !important;
     background: rgb(0, 0, 0);
     display: inline;
     transition: all 0.7s ease;
@@ -83,7 +80,7 @@
   .itemPersonal.visible3 {
     z-index: 2;
     margin-left: -60px;
-    transform: scale(0.5) skewY(10deg);
+    transform: scale(0.5) skewY(10deg) !important;
     background: rgb(0, 0, 0);
     display: inline;
     transition: all 0.7s ease;
@@ -92,7 +89,7 @@
   .itemPersonal.visible4 {
     z-index: 2;
     margin-left: 760px;
-    transform: scale(0.5) skewY(-10deg);
+    transform: scale(0.5) skewY(-10deg) !important;
     background: rgb(0, 0, 0);
     display: inline;
     transition: all 0.2s ease;
@@ -142,7 +139,7 @@
   transform: perspective(800px);
   transform-style: preserve-3d;
   cursor: pointer;
-  filter: blur(4px);
+  filter: blur(2px);
   height: 250px;
   border-radius: 10px 10px 0px 0px;
 }
@@ -171,7 +168,9 @@
 
 .itemPersonal.visible1>div {
 opacity: 0.7;
+transform: scale(1) translateX(0px) translateY(0px) !important;
 }
+
 .itemPersonal.visible2>div {
   opacity: 0.7;
 }
@@ -182,5 +181,22 @@ opacity: 0.7;
 .itemPersonal.visible4>div {
     opacity: 0.3;
     filter: blur(1px);
+}
+
+.itemPersonal.visible1>div>div.FondoPerfil {
+  transform: scale(1) translateX(0px) translateY(0px) !important;
+  filter: blur(1.5px) !important;
+}
+.itemPersonal.visible2>div>div.FondoPerfil {
+  transform: scale(1) translateX(0px) translateY(0px) !important;
+  filter: blur(1.5px) !important;
+}
+.itemPersonal.visible3>div>div.FondoPerfil {
+  transform: scale(1) translateX(0px) translateY(0px) !important;
+  filter: blur(1px) !important;
+}
+.itemPersonal.visible4>div>div.FondoPerfil {
+  transform: scale(1) translateX(0px) translateY(0px) !important;
+  filter: blur(1px) !important;
 }
 

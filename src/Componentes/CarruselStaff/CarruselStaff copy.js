@@ -3,18 +3,17 @@ import './CarruselStaff.css';
 import ItemCarruselStaff from './ItemCarruselStaff.js';
 //import Ejemplo from './Ejemplo.js';
 import { makeStyles } from '@material-ui/core/styles';
-import Icono from '../Iconos/IconoCarruselStaff.js';
+
 
 export default function CarruselStaff(props) {
-
     const useStyles = makeStyles({
         active2: {
             transformStyle: "preserve-3d",
-            transform: "perspective(600px) rotateY(0deg) rotateX(0deg) ",
+            transform: "perspective(600px) rotateY(0deg) rotateX(0deg)",
             
             '&:hover': { 
                 transformStyle: "preserve-3d",
-                transform: "scale(1.1) perspective(600px) rotateY(0deg) rotateX(0deg)",  
+                transform: "scale(1.1) perspective(600px) rotateY(10deg) rotateX(10deg)",  
                 cursor: "pointer",
                 transition: "all 1s ease",
             },
@@ -90,7 +89,7 @@ export default function CarruselStaff(props) {
 
 
     let crearListaItems = Items.map((data) => 
-        <ItemCarruselStaff
+        <ItemCarruselStaff 
             id={data.id}
             nombre={data.nombre}
             foto={data.foto}
@@ -107,10 +106,10 @@ export default function CarruselStaff(props) {
     const BotonesControl= (
         <div className='contenedorBotonControles' >
             <div className='botonPre' onClick={()=> SeleccionarItem(p-1) }>
-                <Icono nombre="flechaAtras" size="30px" color="#ffffffcb" />
+                prev
             </div>
             <div className='botonNex' onClick={()=>  SeleccionarItem(p+1)}>
-                <Icono nombre="flechaSiguiente" size="30px" color="#ffffffcb" />
+                Next
             </div>       
         </div>
     )

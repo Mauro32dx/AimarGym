@@ -7,6 +7,7 @@ import Home from '../Secciones/Home/Home.js';
 import PieDePagina from '../Componentes/PieDePagina/PieDePagina.js';
 import Personal from '../Secciones/Personal/Personal.js';
 import Actividades from '../Secciones/Actividades/Actividades.js';
+import Horarios from '../Secciones/Horarios/Horarios.js';
 
 function Principal() {
   
@@ -30,7 +31,9 @@ function Principal() {
             <section className="element" id="S02" style={{background:'#f7f7f7'}}>
               <Actividades />
             </section>
-            <section className="element" id="S03" style={{ height:"400px" }}>horarios</section>
+            <section className="element" id="S03" style={{ }}>
+              <Horarios />
+            </section>
             <section className="element" id="S04" style={{ background:'#f7f7f7'}}>
               <Personal />
             </section>

@@ -1,0 +1,45 @@
+.contenedorItemActividad {
+    width: 200px;
+}
+.tituloDia{
+    position: absolute;
+    color: rgba(255, 255, 255, 0.192);
+    text-transform: uppercase;
+    
+}
+.logoItemActividad{
+    width: 40px;
+    height: 40px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.514);
+    margin-left: 50px;
+    padding-top: 5px;
+    transition: all 0.7s ease;
+}
+.celdaIconoCalendario{
+    padding: 15px 25px;
+    background: rgba(0, 0, 0, 0.774);
+}
+.tablaHorarios{
+    width: 800px;
+    border-collapse: collapse;
+
+}
+.tablaHorariosEncabezado{
+    height: 60px;
+    background: #d6dbdfdc;
+}
+.columnaDias{
+    width: 160px;
+    text-align: center;
+    vertical-align: middle;
+}
+.celdaHora{
+    background: #d6dbdfdc; 
+}
+.FilaHora>td {
+    border: rgb(184, 184, 184) 1px solid;
+    border-collapse: collapse;
+    text-align: center;
+ /*   vertical-align: middle;   */
+}
