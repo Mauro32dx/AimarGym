@@ -8,6 +8,7 @@ import PieDePagina from '../Componentes/PieDePagina/PieDePagina.js';
 import Personal from '../Secciones/Personal/Personal.js';
 import Actividades from '../Secciones/Actividades/Actividades.js';
 import Horarios from '../Secciones/Horarios/Horarios.js';
+import Tarifa from '../Secciones/Tarifa/Tarifa.js';
 
 function Principal() {
   
@@ -37,7 +38,9 @@ function Principal() {
             <section className="element" id="S04" style={{ background:'#f7f7f7'}}>
               <Personal />
             </section>
-            <section className="element" id="S05" style={{ height:"400px" }}>tarifa</section>
+            <section className="element" id="S05" style={{ height:"400px" }}>
+              <Tarifa />
+            </section>
             <section className="element" id="S06" style={{ background:'#f7f7f7', height:"400px" }}>Contacto</section>
 
             <PieDePagina />

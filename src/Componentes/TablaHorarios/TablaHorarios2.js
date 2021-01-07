@@ -1,80 +1,273 @@
 import React from 'react';
-import { withStyles, makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import { withStyles } from '@material-ui/core/styles';
+import MuiAccordion from '@material-ui/core/Accordion';
+import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
+import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
+import Typography from '@material-ui/core/Typography';
+import ItemActividadHorario from '../../Componentes/TablaHorarios/ItemActividadHorario';
+import IconoHorarios from '../Iconos/IconoHorarios.js';
 
-const StyledTableCell = withStyles((theme) => ({
-  head: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
-  },
-  body: {
-    fontSize: 14,
-  },
-}))(TableCell);
-
-const StyledTableRow = withStyles((theme) => ({
+const Accordion = withStyles({
   root: {
-    '&:nth-of-type(odd)': {
-      backgroundColor: theme.palette.action.hover,
+    border: '1px solid rgba(0, 0, 0, .125)',
+    boxShadow: 'none',
+    '&:not(:last-child)': {
+      borderBottom: 0,
+    },
+    '&:before': {
+      display: 'none',
+    },
+    '&$expanded': {
+      margin: 'auto',
     },
   },
-}))(TableRow);
+  expanded: {},
+})(MuiAccordion);
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-  createData('17:00 hs' ,"" ,"" ,"" ,"" ,"" ),
-  createData('17:00 hs' ,""  ,""  ,""  ,""  ,"" ),
-  createData('17:00 hs' ,""  ,""  ,""  ,""  ,"" ),
-  createData('17:00 hs' ,""  ,""  ,""  ,""  ,"" ),
-  createData('17:00 hs' ,""  ,""  ,""  ,""  ,"" ),
-];
-
-const useStyles = makeStyles({
-  table: {
-    minWidth: 700,
+const AccordionSummary = withStyles({
+  root: {
+    backgroundColor: 'rgba(0, 0, 0, .03)',
+    borderBottom: '1px solid rgba(0, 0, 0, .125)',
+    marginBottom: -1,
+    minHeight: 56,
+    '&$expanded': {
+      minHeight: 56,
+    },
   },
-});
+  content: {
+    '&$expanded': {
+      margin: '12px 0',
+    },
+  },
+  expanded: {},
+})(MuiAccordionSummary);
 
-export default function TablaHorarios() {
-  const classes = useStyles();
+const AccordionDetails = withStyles((theme) => ({
+  root: {
+    padding: theme.spacing(2),
+  },
+}))(MuiAccordionDetails);
 
+export default function TablaHorarios2(props) {
+  const [expanded, setExpanded] = React.useState('panel1');
+
+  const handleChange = (panel) => (event, newExpanded) => {
+    setExpanded(newExpanded ? panel : false);
+  };
+
+function seleccionarClase(dia,hora) {
+    let horaInicio= hora +":00";
+    let horaMasUno=(hora+1)+":00";
+    let items=[] ;
+
+    props.Actividades.forEach(element => 
+      element.clases.forEach(element2 => {
+        if (element2.dia === dia) {
+          if ( element2.horarioComienzo  >= horaInicio) {
+            if ( element2.horarioComienzo  < horaMasUno) { 
+                items.push({
+                  id : element.id ,
+                  nombre : element.nombre ,
+                  profesor : element.profesor ,
+                  fondo : element.fondo ,
+                  logo : element.logo ,
+                  dia : element2.dia,
+                  horarioComienzo : element2.horarioComienzo ,
+                  horarioFinalizacion : element2.horarioFinalizacion
+                })
+            } 
+          }
+        }
+      })
+    );
+    return(
+      <div>
+        {items.map((Activ) => (
+              <ItemActividadHorario   
+                  id={Activ.id}
+                  subId={Activ.id+'-'+Activ.dia+'-'+Activ.horarioComienzo} 
+                  nombre={Activ.nombre }
+                  profesor={Activ.profesor }
+                  fondo={Activ.fondo }
+                  logo={Activ.logo }
+                  dia={Activ.dia }
+                  horarioComienzo={Activ.horarioComienzo }
+                  horarioFinalizacion={Activ.horarioFinalizacion }
+              />
+        ))}
+      </div>
+    )
+  };
+  
+  
   return (
-    <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label="customized table">
-        <TableHead>
-          <TableRow>
-            <StyledTableCell>Horarios</StyledTableCell>
-            <StyledTableCell align="right">Lunes</StyledTableCell>
-            <StyledTableCell align="right">Martes</StyledTableCell>
-            <StyledTableCell align="right">Miercoles</StyledTableCell>
-            <StyledTableCell align="right">Jueves</StyledTableCell>
-            <StyledTableCell align="right">Viernes</StyledTableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.name}>
-              <StyledTableCell component="th" scope="row">
-                {row.name}
-              </StyledTableCell>
-              <StyledTableCell align="right"> sss </StyledTableCell>
-              <StyledTableCell align="right">{row.fat}</StyledTableCell>
-              <StyledTableCell align="right">{row.carbs}</StyledTableCell>
-              <StyledTableCell align="right">{row.protein}</StyledTableCell>
-              <StyledTableCell align="right">{row.protein}</StyledTableCell>
-            </StyledTableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <div>
+      <div className="celdaIconoCalendario"><IconoHorarios nombre="calendario3" color="white" size="40px" /> </div>
+      <Accordion square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+        <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
+          <Typography>LUNES</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <table className="tablaHorarios">
+            <tr className="FilaHora">
+              <td className="celdaHora" >16:00</td>
+              <td>{  seleccionarClase("lunes",16) }</td>
+            </tr>
+            <tr className="FilaHora">
+              <td className="celdaHora" >17:00</td>
+              <td>{  seleccionarClase("lunes",17) }</td>
+            </tr>
+            <tr className="FilaHora">
+              <td className="celdaHora" >18:00</td>
+              <td>{  seleccionarClase("lunes",18) }</td>
+            </tr>
+            <tr className="FilaHora">
+              <td className="celdaHora" >19:00</td>
+              <td>{  seleccionarClase("lunes",19) }</td>
+            </tr>
+            <tr className="FilaHora">
+              <td className="celdaHora" >20:00</td>
+              <td>{  seleccionarClase("lunes",20) }</td>
+            </tr>
+            <tr className="FilaHora">
+              <td className="celdaHora" >21:00</td>
+              <td>{  seleccionarClase("lunes",21) }</td>
+            </tr>
+          </table>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion square expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+        <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
+          <Typography>MARTES</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <table className="tablaHorarios">
+            <tr className="FilaHora">
+              <td className="celdaHora" >16:00</td>
+              <td>{  seleccionarClase("martes",16) }</td>
+            </tr>
+            <tr className="FilaHora">
+              <td className="celdaHora" >17:00</td>
+              <td>{  seleccionarClase("martes",17) }</td>
+            </tr>
+            <tr className="FilaHora">
+              <td className="celdaHora" >18:00</td>
+              <td>{  seleccionarClase("martes",18) }</td>
+            </tr>
+            <tr className="FilaHora">
+              <td className="celdaHora" >19:00</td>
+              <td>{  seleccionarClase("martes",19) }</td>
+            </tr>
+            <tr className="FilaHora">
+              <td className="celdaHora" >20:00</td>
+              <td>{  seleccionarClase("martes",20) }</td>
+            </tr>
+            <tr className="FilaHora">
+              <td className="celdaHora" >21:00</td>
+              <td>{  seleccionarClase("martes",21) }</td>
+            </tr>
+          </table>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion square expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+        <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
+          <Typography>MIERCOLES</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <table className="tablaHorarios">
+            <tr className="FilaHora">
+              <td className="celdaHora" >16:00</td>
+              <td>{  seleccionarClase("miercoles",16) }</td>
+            </tr>
+            <tr className="FilaHora">
+              <td className="celdaHora" >17:00</td>
+              <td>{  seleccionarClase("miercoles",17) }</td>
+            </tr>
+            <tr className="FilaHora">
+              <td className="celdaHora" >18:00</td>
+              <td>{  seleccionarClase("miercoles",18) }</td>
+            </tr>
+            <tr className="FilaHora">
+              <td className="celdaHora" >19:00</td>
+              <td>{  seleccionarClase("miercoles",19) }</td>
+            </tr>
+            <tr className="FilaHora">
+              <td className="celdaHora" >20:00</td>
+              <td>{  seleccionarClase("miercoles",20) }</td>
+            </tr>
+            <tr className="FilaHora">
+              <td className="celdaHora" >21:00</td>
+              <td>{  seleccionarClase("miercoles",21) }</td>
+            </tr>
+          </table>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion square expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
+        <AccordionSummary aria-controls="panel4d-content" id="panel4d-header">
+          <Typography>JUEVES</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <table className="tablaHorarios">
+            <tr className="FilaHora">
+              <td className="celdaHora" >16:00</td>
+              <td>{  seleccionarClase("jueves",16) }</td>
+            </tr>
+            <tr className="FilaHora">
+              <td className="celdaHora" >17:00</td>
+              <td>{  seleccionarClase("jueves",17) }</td>
+            </tr>
+            <tr className="FilaHora">
+              <td className="celdaHora" >18:00</td>
+              <td>{  seleccionarClase("jueves",18) }</td>
+            </tr>
+            <tr className="FilaHora">
+              <td className="celdaHora" >19:00</td>
+              <td>{  seleccionarClase("jueves",19) }</td>
+            </tr>
+            <tr className="FilaHora">
+              <td className="celdaHora" >20:00</td>
+              <td>{  seleccionarClase("jueves",20) }</td>
+            </tr>
+            <tr className="FilaHora">
+              <td className="celdaHora" >21:00</td>
+              <td>{  seleccionarClase("jueves",21) }</td>
+            </tr>
+          </table>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion square expanded={expanded === 'panel5'} onChange={handleChange('panel5')}>
+        <AccordionSummary aria-controls="panel5d-content" id="panel5d-header">
+          <Typography>VIERNES</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <table className="tablaHorarios">
+            <tr className="FilaHora">
+              <td className="celdaHora" >16:00</td>
+              <td>{  seleccionarClase("viernes",16) }</td>
+            </tr>
+            <tr className="FilaHora">
+              <td className="celdaHora" >17:00</td>
+              <td>{  seleccionarClase("viernes",17) }</td>
+            </tr>
+            <tr className="FilaHora">
+              <td className="celdaHora" >18:00</td>
+              <td>{  seleccionarClase("viernes",18) }</td>
+            </tr>
+            <tr className="FilaHora">
+              <td className="celdaHora" >19:00</td>
+              <td>{  seleccionarClase("viernes",19) }</td>
+            </tr>
+            <tr className="FilaHora">
+              <td className="celdaHora" >20:00</td>
+              <td>{  seleccionarClase("viernes",20) }</td>
+            </tr>
+            <tr className="FilaHora">
+              <td className="celdaHora" >21:00</td>
+              <td>{  seleccionarClase("viernes",21) }</td>
+            </tr>
+          </table>
+        </AccordionDetails>
+      </Accordion>
+    </div>
   );
 }

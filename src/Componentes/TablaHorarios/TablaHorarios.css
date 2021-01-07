@@ -21,16 +21,16 @@
     background: rgba(0, 0, 0, 0.774);
 }
 .tablaHorarios{
-    width: 800px;
+    width: 100%;
     border-collapse: collapse;
-
+    overflow-x:auto
 }
 .tablaHorariosEncabezado{
     height: 60px;
     background: #d6dbdfdc;
 }
 .columnaDias{
-    width: 160px;
+ /*   width: 160px;  */
     text-align: center;
     vertical-align: middle;
 }
@@ -42,4 +42,23 @@
     border-collapse: collapse;
     text-align: center;
  /*   vertical-align: middle;   */
+}
+
+.contenedorTablaHoracio1 {
+    display: inline;
+    margin: 50px;
+}
+.contenedorTablaHoracio2 {
+    display: none;
+    margin: 50px;
+}
+
+@media  screen and (max-width: 500px) { 
+    .contenedorTablaHoracio1 {
+        display: none;
+    }
+    .contenedorTablaHoracio2 {
+        display: inline;
+    }
+
 }

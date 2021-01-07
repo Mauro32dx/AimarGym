@@ -15,7 +15,7 @@ export default function TablaHorarios(props) {
       element.clases.forEach(element2 => {
         if (element2.dia === dia) {
           if ( element2.horarioComienzo  >= horaInicio) {
-            if ( element2.horarioComienzo  <= horaMasUno) { 
+            if ( element2.horarioComienzo  < horaMasUno) { 
                 items.push({
                   id : element.id ,
                   nombre : element.nombre ,
@@ -35,8 +35,8 @@ export default function TablaHorarios(props) {
       <div>
         {items.map((Activ) => (
               <ItemActividadHorario   
-                  id='Acti2'
-                  subId='0' 
+                  id={Activ.id}
+                  subId={Activ.id+'-'+Activ.dia+'-'+Activ.horarioComienzo} 
                   nombre={Activ.nombre }
                   profesor={Activ.profesor }
                   fondo={Activ.fondo }
@@ -92,6 +92,14 @@ export default function TablaHorarios(props) {
         <td>{  seleccionarClase("jueves",20) }</td>
         <td>{  seleccionarClase("viernes",20) }</td>
       </tr>
+      <tr className="FilaHora">
+        <td className="celdaHora" >21:00</td>
+        <td>{  seleccionarClase("lunes",21) }</td>
+        <td>{  seleccionarClase("martes",21) }</td>
+        <td>{  seleccionarClase("miercoles",21) }</td>
+        <td>{  seleccionarClase("jueves",21) }</td>
+        <td>{  seleccionarClase("viernes",21) }</td>
+      </tr>
     </React.Fragment>
 
   )
@@ -108,7 +116,9 @@ export default function TablaHorarios(props) {
         <th className="columnaDias">VIERNES</th>
       </tr>
       {filasHorarios}
-      </table>    
+      </table> 
+      
+         
     </React.Fragment>
 
   );

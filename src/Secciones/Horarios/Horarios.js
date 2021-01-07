@@ -1,7 +1,7 @@
 import React from 'react';
 import './Horarios.css';
 import TablaHorarios from '../../Componentes/TablaHorarios/TablaHorarios.js';
-
+import TablaHorarios2 from '../../Componentes/TablaHorarios/TablaHorarios2.js';
 
 const Actividades = [
     { id: 'Acti0',  
@@ -49,7 +49,7 @@ const Actividades = [
     { id: 'Acti4',  
     nombre: "Actividad 4",
     profesor: "Profesor 4",
-    fondo: "orange",
+    fondo: "yellow",
     logo: "logo4",
     clases:[
           { dia:"lunes", horarioComienzo: "17:10", horarioFinalizacion: "18:40"},
@@ -72,8 +72,13 @@ export default class Horarios extends React.Component {
             <div>
                 <h1> Horarios </h1>
                 <p> Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500 </p>
-                <TablaHorarios  Actividades={ Actividades}
-                />
+               <div className="contenedorTablaHoracio1">
+                    <TablaHorarios  Actividades={ Actividades} />
+               </div>
+               <div className="contenedorTablaHoracio2">
+                     <TablaHorarios2  Actividades={ Actividades} /> 
+               </div> 
+                               
             </div>
         )
     }
